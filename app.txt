@@ -1,0 +1,12 @@
+{
+  "name": "Techmagic app"
+  "description": "Sample App-Heroku",
+  "repository": "https://github.com/goldberg49spear/tripod1",
+  "success_url": "/samplehtml.html",
+  "env": {
+    "PGSSLMODE": {
+      "description": "Require SSL for Postgres",
+      "value": "require"
+    }
+  }
+}
