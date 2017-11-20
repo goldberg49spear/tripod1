@@ -20,7 +20,16 @@ app.set('port', (process.env.PORT || 5000));
 app.get('/', function(request, response) {
     //var result = 'App is running'
     response.sendFile(__dirname+'/samplehtml.html');
-     var conString = process.env.DATABASE_URL;
+     
+	
+	
+}).listen(app.get('port'), function() {
+    console.log('App is running, server is listening on port ', app.get('port'));
+});
+
+app.get('/', function(request, response) {
+	
+	var conString = process.env.DATABASE_URL;
         var client = new pg.Client(conString);
 
         client.connect();
@@ -39,19 +48,8 @@ app.get('/', function(request, response) {
             res.write(JSON.stringify(result.rows, null, "    ") + "\n");
             res.end();  
         });
-	
-	
-	
-	
-	
-	
-}).listen(app.get('port'), function() {
-    console.log('App is running, server is listening on port ', app.get('port'));
-});
-
-//app.get('/', function(request, response) {
  
-//});
+});
 
 //app.get('/update', function(req, res) {
 //  pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
