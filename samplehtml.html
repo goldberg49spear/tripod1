@@ -60,7 +60,9 @@
 		    alert('inside');
 		     $.ajax({
 			type: 'GET',
-                        url: "index.js/getrecords",
+                        
+			     url: event.target.action,
+                        method: event.target.method,
                      
 			success: function(response){
         			alert('success');
