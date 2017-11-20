@@ -1,5 +1,5 @@
 var express = require('express'),
-    http = require('http'),
+    //http = require('http'),
     request = require('request'),
     bodyParser = require('body-parser'),
     errorHandler = require('express-error-handler'),
