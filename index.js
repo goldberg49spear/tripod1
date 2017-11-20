@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 app.use('/static',express.static(__dirname +'/bootstrap-3.3.7//dist/js/bootstrap.min.css'));
 app.use('/static',express.static(__dirname +'/bootstrap-3.3.7//dist/js/bootstrap.min.js'));
 app.use('/static',express.static(__dirname +'/styles.css'));
-app.use('/static',express.static(__dirname +'/samplehtml.html'));
+app.use('/static',express.static(__dirname +'/samplehtml.ejs'));
 
 
 app.use(bodyParser.json());
@@ -20,7 +20,7 @@ app.set('port', (process.env.PORT || 5000));
 //For avoidong Heroku $PORT error
 app.get('/', function(request, response) {
     //var result = 'App is running'
-    response.sendFile(__dirname+'/samplehtml.html');
+    response.render(__dirname+'/samplehtml.ejs');
      
 	
 	
