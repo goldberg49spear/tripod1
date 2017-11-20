@@ -34,7 +34,7 @@ app.get('/getrecords', function(request, response) {
 	
 	pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
         // watch for any connect issues
-        if (err) console.log(err);
+        if (err) {console.log(err); alert(err);}
 	conn.query("select * from salesforce14.contact")
 	alert('querying');
 	query.on("row", function (row, result) { 
