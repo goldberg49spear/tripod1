@@ -24,9 +24,14 @@ app.get('/', function(request, response) {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
 
-//app.get('/', function(request, response) {
-//  response.render('samplehtml.html')
-//});
+app.get('/getRecords', function(request, response) {
+  var conString = process.env.DATABASE_URL || "postgres://postgres:Welcome123@localhost:5432/postgres";
+        var client = new pg.Client(conString);
+
+        client.connect();
+
+        var query = client.query("select * from salesforce14.contact");
+});
 
 //app.get('/update', function(req, res) {
 //  pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
