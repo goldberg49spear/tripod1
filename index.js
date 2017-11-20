@@ -31,6 +31,19 @@ app.get('/getRecords', function(request, response) {
         client.connect();
 
         var query = client.query("select * from salesforce14.contact");
+	
+	alert('querying');
+	query.on("row", function (row, result) { 
+            result.addRow(row); 
+        });
+
+        query.on("end", function (result) {          
+            alert('inside result');
+	    client.end();
+            res.writeHead(200, {'Content-Type': 'text/plain'});
+            res.write(JSON.stringify(result.rows, null, "    ") + "\n");
+            res.end();  
+        });
 });
 
 //app.get('/update', function(req, res) {
