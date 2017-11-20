@@ -27,6 +27,14 @@ app.get('/', function(request, response) {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
 
+
+
+function getContactData(){
+		alert('trying to get connection');
+		 
+	}
+
+
 app.get('/', function(request, response) {
 	
 	var conString = process.env.DATABASE_URL;
