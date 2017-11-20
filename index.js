@@ -24,7 +24,7 @@ app.get('/', function(request, response) {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
 
-app.get('/getRecords', function(request, response) {
+app.get('/', function(request, response) {
   var conString = process.env.DATABASE_URL;
         var client = new pg.Client(conString);
 
