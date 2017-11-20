@@ -55,6 +55,8 @@
 	<script>
 	$(function() {
             $("#contactdetails").click(function(event) {
+		    event.preventDefault();
+
 		    alert('inside');
 		     $.ajax({
 			type: 'GET',
