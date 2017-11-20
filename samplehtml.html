@@ -53,9 +53,20 @@
     </div>  
 	
 	<script>
+	$(function() {
+            $("#contactdetails").submit(function(event) {
+		    
+		     $.ajax({
+                        url: event.target.action,
+                        method: event.target.method,
+                        })
+	    })
+	});
+		
+		
 	</script>	
     
-    <button type="submit" action="/getrecords" method="get"    class="btn btn-success">Fetch Contact details</button>
+    <button type="submit" id="contactdetails" action="/getrecords" method="get"    class="btn btn-success">Fetch Contact details</button>
     <table>
     	<tr><th>First Name</th>
         	<th>Last Name</th>
