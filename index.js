@@ -6,7 +6,7 @@ var app = express();
 
 app.set('port', process.env.PORT || 5000);
 
-app.use(express.static('public'));
+app.use(express.static(__dirname +'/public'));
 app.use(bodyParser.json());
 
 app.get('/update', function(req, res) {
