@@ -4,11 +4,7 @@ var pg = require('pg');
 
 var app = express();
 
-app.set('port',process.env.PORT || 8000);
 
-server.listen(port, function() {
-    console.log("App is running on port " + port);
-});
 
 app.use(express.static());
 app.use(bodyParser.json());
