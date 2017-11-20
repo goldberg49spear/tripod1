@@ -15,15 +15,15 @@ app.set('port', (process.env.PORT || 5000));
 
 //For avoidong Heroku $PORT error
 app.get('/', function(request, response) {
-    var result = 'App is running'
-    response.send(result);
+    //var result = 'App is running'
+    response.send('samplehtml.html');
 }).listen(app.get('port'), function() {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
 
-app.get('/', function(request, response) {
-  response.render('samplehtml.html')
-});
+//app.get('/', function(request, response) {
+//  response.render('samplehtml.html')
+//});
 
 //app.get('/update', function(req, res) {
 //  pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
