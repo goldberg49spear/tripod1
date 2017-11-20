@@ -6,7 +6,9 @@ var app = express();
 
 
 
-app.use(express.static());
+app.use(express.static('samplehtml.html'));
+app.use(express.static('styles.css'));
+
 app.use(bodyParser.json());
 
 app.get('/', function(request, response) {
