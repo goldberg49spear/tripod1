@@ -11,33 +11,44 @@ app.use(express.static(__dirname +'samplehtml.html'));
 
 app.use(bodyParser.json());
 
+app.set('port', (process.env.PORT || 5000));
+
+//For avoidong Heroku $PORT error
 app.get('/', function(request, response) {
-  response.render('samplehtml.html')
+    var result = 'App is running'
+    response.send(result);
+}).listen(app.get('port'), function() {
+    console.log('App is running, server is listening on port ', app.get('port'));
 });
 
-app.get('/update', function(req, res) {
-    pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
+//app.get('/', function(request, response) {
+//  response.render('samplehtml.html')
+//});
+
+//app.get('/update', function(req, res) {
+//  pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
         // watch for any connect issues
-        if (err)  
-		{console.log(err);
-			 res.status(400).json({error: err.message});}
+//        if (err)  
+//		{console.log(err);
+//			 res.status(400).json({error: err.message});}
         
                 
-                else {
-					alert("working");
+ //               else {
+//
+//					alert("working");
 					conn.query(
-            'SELECT firstName,LastName,Phone,MobilePhone from salesforce14.Contact'            
-                  );
+//          'SELECT firstName,LastName,Phone,MobilePhone from salesforce14.Contact'            
+//              );
 					
 					
-                    done();
-                    res.json(result);
-                }
-            }
-        );
-    });
+//              done();
+//             res.json(result);
+//           }
+//    }
+//   );
+//  });
 
 
-app.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
-});
+//app.listen(app.get('port'), function () {
+//    console.log('Express server listening on port ' + app.get('port'));
+//});
