@@ -1,3 +1,5 @@
+
+
 module.exports = {
   getRecords: function(req, res) {    
         var pg = require('pg');  
