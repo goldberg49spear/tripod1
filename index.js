@@ -5,8 +5,8 @@ var pg = require('pg');
 var app = express();
 
 app.use(express.static(__dirname +'/bootstrap-3.3.7'));
-app.use(express.static(__dirname +'styles.css'));
-app.use(express.static(__dirname +'samplehtml.html'));
+app.use(express.static(__dirname +'/styles.css'));
+app.use(express.static(__dirname +'/samplehtml.html'));
 
 
 app.use(bodyParser.json());
@@ -16,7 +16,7 @@ app.set('port', (process.env.PORT || 5000));
 //For avoidong Heroku $PORT error
 app.get('/', function(request, response) {
     //var result = 'App is running'
-    response.sendFile(__dirname+'samplehtml.html');
+    response.sendFile(__dirname+'/samplehtml.html');
 }).listen(app.get('port'), function() {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
