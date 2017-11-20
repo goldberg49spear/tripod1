@@ -55,12 +55,12 @@
 	<script>
 	$(function() {
             $("#contactdetails").submit(function(event) {
-		    
+		    alert('inside');
 		     $.ajax({
                         url: event.target.action,
                         method: event.target.method,
                         })
-	    })
+	    });
 	});
 		
 		
