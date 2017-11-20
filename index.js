@@ -5,9 +5,9 @@ var pg = require('pg');
 var app = express();
 
 
-
-app.use(express.static('samplehtml.html'));
 app.use(express.static('styles.css'));
+app.use(express.static('samplehtml.html'));
+
 
 app.use(bodyParser.json());
 
