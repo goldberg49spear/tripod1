@@ -31,7 +31,7 @@ app.get('/', function(request, response) {
 
 app.get('/getrecords', function(request, response) {
 	
-	
+	alert('at index.js');
 	pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
         // watch for any connect issues
         if (err) {console.log(err); alert(err);}
