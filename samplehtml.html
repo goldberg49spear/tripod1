@@ -64,6 +64,7 @@
                         method: event.target.method,
 			success: function(result){
         			alert('success');
+				alert(result);
     			},
 			error: function(err) {
                             errorMessage.text(err.responseJSON.error);
