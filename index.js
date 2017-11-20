@@ -25,7 +25,7 @@ app.get('/', function(request, response) {
 });
 
 app.get('/getRecords', function(request, response) {
-  var conString = process.env.DATABASE_URL || "postgres://postgres:Welcome123@localhost:5432/postgres";
+  var conString = process.env.DATABASE_URL;
         var client = new pg.Client(conString);
 
         client.connect();
