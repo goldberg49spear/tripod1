@@ -21,9 +21,9 @@ app.get('/', function(request, response) {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
 
-//app.get('/', function(request, response) {
-//  response.render('samplehtml.html')
-//});
+app.get('/', function(request, response) {
+  response.render('samplehtml.html')
+});
 
 //app.get('/update', function(req, res) {
 //  pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
