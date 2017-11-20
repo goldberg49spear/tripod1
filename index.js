@@ -36,7 +36,7 @@ app.get('/', function(request, response) {
  //               else {
 //
 //					alert("working");
-					conn.query(
+//					conn.query(
 //          'SELECT firstName,LastName,Phone,MobilePhone from salesforce14.Contact'            
 //              );
 					
