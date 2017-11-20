@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var pg = require('pg');
 
 var app = express();
+app.set('view engine', 'ejs');
 
 
 app.use('/static',express.static(__dirname +'/bootstrap-3.3.7//dist/js/bootstrap.min.css'));
