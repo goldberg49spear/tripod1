@@ -4,9 +4,9 @@ var pg = require('pg');
 
 var app = express();
 
-
-app.use(express.static('styles.css'));
-app.use(express.static('samplehtml.html'));
+app.use(express.static(__dirname +'/bootstrap-3.3.7'));
+app.use(express.static(__dirname +'styles.css'));
+app.use(express.static(__dirname +'samplehtml.html'));
 
 
 app.use(bodyParser.json());
