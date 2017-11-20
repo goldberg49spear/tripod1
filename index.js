@@ -35,15 +35,11 @@ function getContactData(){
 	}
 
 
-app.get('/', function(request, response) {
-	
-	var conString = process.env.DATABASE_URL;
-        var client = new pg.Client(conString);
 
-        client.connect();
-
-        var query = client.query("select * from salesforce14.contact");
-	
+	pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
+        // watch for any connect issues
+        if (err) console.log(err);
+	conn.query("select * from salesforce14.contact")
 	alert('querying');
 	query.on("row", function (row, result) { 
             result.addRow(row); 
@@ -55,9 +51,15 @@ app.get('/', function(request, response) {
             res.writeHead(200, {'Content-Type': 'text/plain'});
             res.write(JSON.stringify(result.rows, null, "    ") + "\n");
             res.end();  
-        });
- 
+        });	
 });
+
+      
+	
+	
+	
+ 
+
 
 //app.get('/update', function(req, res) {
 //  pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
