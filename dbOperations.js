@@ -4,7 +4,7 @@ module.exports = {
       
         //You can run command "heroku config" to see what is Database URL from Heroku belt
       
-        var conString = process.env.DATABASE_URL || "postgres://postgres:Welcome123@localhost:5432/postgres";
+        var conString = process.env.DATABASE_URL;
         var client = new pg.Client(conString);
 
         client.connect();
