@@ -62,9 +62,9 @@
 			type: 'GET',
                         url: event.target.action,
                         method: event.target.method,
-			success: function(result){
+			success: function(response){
         			alert('success');
-				alert(result);
+				alert(response);
     			},
 			error: function(err) {
                             errorMessage.text(err.responseJSON.error);
