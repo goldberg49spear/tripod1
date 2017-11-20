@@ -31,11 +31,8 @@ app.get('/', function(request, response) {
 
 function getContactData(){
 		alert('trying to get connection');
-		 
-	}
-
-
-
+	
+	
 	pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
         // watch for any connect issues
         if (err) console.log(err);
@@ -54,6 +51,11 @@ function getContactData(){
         });	
 });
 
+}
+
+
+
+	
       
 	
 	
