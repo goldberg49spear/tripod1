@@ -57,13 +57,13 @@
             $("#contactdetails").click(function(event) {
 		    alert('inside');
 		     $.ajax({
-			alert('inside ajax');
+			type: 'GET',
                         url: event.target.action,
                         method: event.target.method,
 			success: function(result){
         			alert('success');
     			}
-			type: 'GET'
+			
                         });
 	    });
 	});
