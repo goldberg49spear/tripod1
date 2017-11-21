@@ -46,7 +46,7 @@ app.get('/db/readRecords', function(req,res){
         
         client.connect();
 
-        var query = client.query("select * from employee");
+        var query = client.query("select * from salesforce14.contact");
 
         query.on("row", function (row, result) { 
             result.addRow(row); 
