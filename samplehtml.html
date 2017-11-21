@@ -40,7 +40,9 @@
 			alert('hello');
                      $http({method: 'GET', url: '/db/readRecords'}).
                         then(function success(data) { 
-                              $scope.dataset = data; 
+                             alert('success'); 
+			     $scope.dataset = data; 
+			     alert(dataset);
                         },
                         function error(data) {
                           $scope.dataset = data || "Request failed "; 
