@@ -29,6 +29,7 @@
 		var myApp = angular.module('postgreSQL',[ ]); 
              
             myApp.controller('postgreSQLCtrl', ['$scope' ,'$http',  function($scope,$http) {
+		    alert('inside controller');
                 $scope.val1 = 'This is temp Val' ;  
                 $scope.fName = '';
                 $scope.lName = '';
