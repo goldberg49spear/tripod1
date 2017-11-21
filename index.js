@@ -3,13 +3,13 @@ var bodyParser = require('body-parser');
 var pg = require('pg');
  var errorHandler = require('express-error-handler');
 var app = express();
-app.set('view engine', 'ejs');
+//app.set('view engine', 'ejs');
 
 
 app.use('/static',express.static(__dirname +'/bootstrap-3.3.7//dist/js/bootstrap.min.css'));
 app.use('/static',express.static(__dirname +'/bootstrap-3.3.7//dist/js/bootstrap.min.js'));
 app.use('/static',express.static(__dirname +'/styles.css'));
-app.use('/static',express.static(__dirname +'/samplehtml.ejs'));
+app.use('/static',express.static(__dirname +'/samplehtml.html'));
 
 
 app.use(bodyParser.json());
@@ -23,7 +23,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.get('/', function(request, response) {
     //var result = 'App is running'
-    response.render(__dirname+'/samplehtml.ejs');
+    response.sendFile(__dirname+'/samplehtml.html');
      
 	
 	
