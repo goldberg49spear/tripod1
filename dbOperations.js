@@ -8,7 +8,7 @@ module.exports = {
       
         var conString = process.env.DATABASE_URL;
         var client = new pg.Client(conString);
-
+        alert('inside');
         client.connect();
 
         var query = client.query("select * from employee");
