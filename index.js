@@ -35,7 +35,8 @@ app.listen(app.get('port'), function () {
 });
 
 app.get('/db/readRecords', function(req,res){
-	aler('inside db records');
+	alert('inside db records');
+	alert(dbOperations);
     dbOperations.getRecords(req,res);
 });
 
