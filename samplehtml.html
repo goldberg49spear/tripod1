@@ -39,13 +39,13 @@
                 $scope.getAllRec = function(){ 
 			alert('hello');
                      $http({method: 'GET', url: '/db/readRecords'}).
-                        then(function success(data) { 
+                        then(function success(response) { 
                              alert('success'); 
-			     $scope.dataset = data; 
+			     $scope.dataset = response.data; 
 			     alert(dataset);
                         },
-                        function error(data) {
-                          $scope.dataset = data || "Request failed "; 
+                        function error(response) {
+                          $scope.dataset = response.data || "Request failed "; 
                       }); 
 		};
 		alert('checking');
