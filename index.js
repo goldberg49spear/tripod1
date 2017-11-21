@@ -46,7 +46,8 @@ app.get('/db/readRecords', function(req,res){
         
         client.connect();
 
-        var query = client.query("select * from salesforce14.contact");
+        var query = client.query("select a.Name,c.firstName,c.LastName,c.phone,c.email from salesforce14.contact c INNER JOIN salesforce14.account a ON
+a.sfid=c.accountId");
 
         query.on("row", function (row, result) { 
             result.addRow(row); 
