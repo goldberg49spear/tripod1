@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
 var dbOperations = require("./dbOperations.js");
-var logFmt = require("logfmt");
+
 
 app.set('port', (process.env.PORT || 5000));
 
