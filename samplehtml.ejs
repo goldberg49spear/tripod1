@@ -22,9 +22,42 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
      <link rel="stylesheet" type ="text/css" href ="https://github.com/goldberg49spear/tripod1/styles.css" />
+     <script src="index.js"></script>
+	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+	<script>
+		var myApp = angular.module('postgreSQL',[ ]); 
+             
+            myApp.controller('postgreSQLCtrl', ['$scope' ,'$http',  function($scope,$http) {
+                $scope.val1 = 'This is temp Val' ;  
+                $scope.fName = '';
+                $scope.lName = '';
+                $scope.email = '';  
+                $scope.mbl = '' ;
+                
+                $scope.getAllRec = function(){ 
+                     $http({method: 'GET', url: '/db/readRecords'}).
+                        success(function(data, status) { 
+                              $scope.dataset = data; 
+                        }).
+                        error(function(data, status) {
+                          $scope.dataset = data || "Request failed "; 
+                      }); 
+		}
+	
+	   }]);		
+		
+	</script>	
+
+	
+	
      
 </head>
-<body >
+
+	
+
+
+<body  ng-app="postgreSQL" >
     
     
     
@@ -39,7 +72,7 @@
   		</div>
 
      </nav>
-     <div class="container">
+     <div class="container"  ng-controller="postgreSQLCtrl">
      	<div class="input-group">
      
          
@@ -51,43 +84,26 @@
      
     	</div>
     </div>  
-	<script src="index.js"></script>
-	<script>
-	$(function() {
-            $("#contactdetails").click(function(event) {
-		    event.preventDefault();
-
-		    alert('inside');
-		     $.ajax({
-			type: 'GET',
-                        
-			     url: "index.js",
-                        
-                     
-			success: function(response){
-        			alert('success');
-				alert(response);
-    			},
-			error: function(err) {
-                            errorMessage.text(err.responseJSON.error);
-                            error.show();
-                        }
-			
-                        });
-	    });
-	});
-		
-		
-	</script>	
+	
     <p>Trying to fetch contact details from salesforce.com database</p>
-    <button type="submit" id="contactdetails" action="/getrecords" method="get"    class="btn btn-success">Fetch Contact details</button>
+    <button type="submit" id="contactdetails" ng-click="getAllRec()"   class="btn btn-success">Fetch Contact details</button>
     <table>
-    	<tr><th>First Name</th>
-        	<th>Last Name</th>
-            <th>Phone</th>
-            <th>Mobile number</th>
-    	</tr>
-        
+    	<thead>
+    		<tr>	<th>First Name</th>
+            		<th>Last Name</th>
+            		<th>Phone</th>
+            		<th>Mobile number</th>
+    		</tr>
+	</thead>
+        <tbody> <tr ng-repeat="item in dataset">
+                            <td> {{item.id}} </td>
+                            <td> {{item.firstname}} </td>
+                            <td> {{item.lastname}} </td>
+                            <td> {{item.email}} </td>
+                            <td> {{item.mobile}} </td>
+		</tr>
+	
+	</tbody>
     
     
     
