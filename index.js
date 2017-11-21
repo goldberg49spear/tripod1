@@ -27,6 +27,8 @@ app.get('/', function(request, response) {
      
 	
 	
+}).listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
 });
 
 app.get('/db/readRecords', function(req,res){
@@ -34,10 +36,7 @@ app.get('/db/readRecords', function(req,res){
 });
 
 //For avoidong Heroku $PORT error
-app.use(errorHandler());
-app.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
-});
+
 
 //app.get('/getrecords', function(request, response) {
 //	
