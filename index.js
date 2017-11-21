@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var pg = require('pg');
-
+ var errorHandler = require('express-error-handler');
 var app = express();
 app.set('view engine', 'ejs');
 
@@ -15,43 +15,52 @@ app.use('/static',express.static(__dirname +'/samplehtml.ejs'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
+var dbOperations = require("./dbOperations.js");
+var logFmt = require("logfmt");
+
 app.set('port', (process.env.PORT || 5000));
 
-//For avoidong Heroku $PORT error
+
 app.get('/', function(request, response) {
     //var result = 'App is running'
     response.render(__dirname+'/samplehtml.ejs');
      
 	
 	
-}).listen(app.get('port'), function() {
-    console.log('App is running, server is listening on port ', app.get('port'));
 });
 
+app.get('/db/readRecords', function(req,res){
+    dbOperations.getRecords(req,res);
+});
 
+//For avoidong Heroku $PORT error
+app.use(errorHandler());
+app.listen(app.get('port'), function () {
+    console.log('Express server listening on port ' + app.get('port'));
+});
 
-app.get('/getrecords', function(request, response) {
-	
-	alert('at index.js');
-	pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
+//app.get('/getrecords', function(request, response) {
+//	
+//	alert('at index.js');
+//	pg.connect(process.env.DATABASE_URL, function (err, conn, done) {
         // watch for any connect issues
-        if (err) {console.log(err); alert(err);}
-	conn.query("select * from salesforce14.contact")
-	alert('querying');
-	query.on("row", function (row, result) { 
-            result.addRow(row); 
-        });
+//        if (err) {console.log(err); alert(err);}
+//	conn.query("select * from salesforce14.contact")
+//	alert('querying');
+//	query.on("row", function (row, result) { 
+//           result.addRow(row); 
+//        });
 
-        query.on("end", function (result) {          
-            alert('inside result');
-	    client.end();
-            res.writeHead(200, {'Content-Type': 'text/plain'});
-            res.write(JSON.stringify(result.rows, null, "    ") + "\n");
-            res.end();  
-        });	
-});
+//        query.on("end", function (result) {          
+//            alert('inside result');
+//	    client.end();
+//          res.writeHead(200, {'Content-Type': 'text/plain'});
+//            res.write(JSON.stringify(result.rows, null, "    ") + "\n");
+//            res.end();  
+//        });	
+//});
 
-});
+//});
 
 
 
