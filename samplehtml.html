@@ -26,32 +26,17 @@
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 	<script>
-		//var myApp = angular.module('postgreSQL',[ ]); 
+		var myApp = angular.module('postgreSQL',[ ]); 
              
-            	//myApp.controller('postgreSQLCtrl', ['$scope' ,'$http',  function($scope,$http) {
-		 //   alert('inside controller');
+            	myApp.controller('postgreSQLCtrl', ['$scope' ,'$http',  function($scope,$http) {
+		    alert('inside controller');
                 //$scope.val1 = 'This is temp Val' ;  
                 //$scope.fName = '';
                 //$scope.lName = '';
                 //$scope.email = '';  
                 //$scope.mbl = '' ;
-                //	alert('inside2');
-                //$scope.getAllRec = function(){ 
-		//	alert('hello');
-                    // $http({method: 'GET', url: '/db/readRecords'}).
-                     //   success(function(data, status) { 
-                     //         $scope.dataset = data; 
-                    //    }).
-                    //    error(function(data, status) {
-                   //       $scope.dataset = data || "Request failed "; 
-                  //    }); 
-		//};
-		//alert('checking');
-	
-	  // }]);	
-		
-		
-		$scope.getAllRec = function(){ 
+                	alert('inside2');
+                $scope.getAllRec = function(){ 
 			alert('hello');
                      $http({method: 'GET', url: '/db/readRecords'}).
                         success(function(data, status) { 
@@ -61,6 +46,22 @@
                           $scope.dataset = data || "Request failed "; 
                       }); 
 		};
+		alert('checking');
+		$scope.getAllRec();
+	
+	   }]);	
+		
+		
+		//$scope.getAllRec = function(){ 
+		//	alert('hello');
+                 //    $http({method: 'GET', url: '/db/readRecords'}).
+                 //       success(function(data, status) { 
+                  //            $scope.dataset = data; 
+                 //       }).
+                  //      error(function(data, status) {
+                  //        $scope.dataset = data || "Request failed "; 
+                  //    }); 
+		//};
 		
 	</script>	
 
@@ -72,9 +73,9 @@
 	
 
 
-<body  ng-app="postgreSQL" >
+<body >
     
-    
+    <div ng-app="postgreSQL" ng-controller="postgreSQLCtrl">
     
       <h2 id="trying"><center>WELCOME</center></h2>
       <nav class="navbar navbar-inverse">
@@ -87,7 +88,7 @@
   		</div>
 
      </nav>
-     <div class="container"  ng-controller="postgreSQLCtrl">
+     <div class="container"  >
      	<div class="input-group">
      
          
@@ -125,6 +126,6 @@
     </table>
     
        
-		
+	</div>		
 </body>
 </html>
