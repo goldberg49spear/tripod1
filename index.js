@@ -36,8 +36,8 @@ app.listen(app.get('port'), function () {
 
 app.get('/db/readRecords', function(req,res){
 	
-    dbOperations.getRecords(req,res);
-	res.end();
+   res.send(dbOperations.getRecords(req,res));
+	
 });
 
 //For avoidong Heroku $PORT error
