@@ -108,15 +108,18 @@
     <button  ng-click="getAllRec()"   class="btn btn-success">Fetch Contact details</button>
     <table>
     	<thead>
-		<tr>	<th>Id</th>
+		<tr>	<th>Account Name</th>
+			<th>Id</th>
 			<th>First Name</th>
             		<th>Last Name</th>
             		<th>Phone</th>
 			<th>email</th>
 			
+			
     		</tr>
 	</thead>
         <tbody> <tr ng-repeat="item in dataset">
+			    <td>{{item.accountId}}</td>
 			    <td>{{item.id}}</td>
                             <td> {{item.firstname}} </td>
                             <td>  {{item.lastname}}</td>
