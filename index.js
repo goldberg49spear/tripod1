@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var pg = require('pg');
  var errorHandler = require('express-error-handler');
 var app = express();
+var dbOperations = require(__dirname +"/dbOperations.js");
 //app.set('view engine', 'ejs');
 
 
@@ -15,7 +16,7 @@ app.use('/static',express.static(__dirname +'/samplehtml.html'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
-var dbOperations = require(__dirname +"/dbOperations.js");
+
 
 
 app.set('port', (process.env.PORT || 5000));
@@ -27,7 +28,9 @@ app.get('/', function(request, response) {
      
 	
 	
-}).listen(app.get('port'), function () {
+});
+
+app.listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
 });
 
