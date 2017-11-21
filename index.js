@@ -15,7 +15,7 @@ app.use('/static',express.static(__dirname +'/samplehtml.html'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}));
 
-var dbOperations = require("./dbOperations.js");
+var dbOperations = require(__dirname +"/dbOperations.js");
 
 
 app.set('port', (process.env.PORT || 5000));
