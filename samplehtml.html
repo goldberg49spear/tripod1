@@ -26,17 +26,32 @@
 	
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
 	<script>
-		var myApp = angular.module('postgreSQL',[ ]); 
+		//var myApp = angular.module('postgreSQL',[ ]); 
              
-            myApp.controller('postgreSQLCtrl', ['$scope' ,'$http',  function($scope,$http) {
-		    alert('inside controller');
-                $scope.val1 = 'This is temp Val' ;  
-                $scope.fName = '';
-                $scope.lName = '';
-                $scope.email = '';  
-                $scope.mbl = '' ;
-                	alert('inside2');
-                $scope.getAllRec = function(){ 
+            	//myApp.controller('postgreSQLCtrl', ['$scope' ,'$http',  function($scope,$http) {
+		 //   alert('inside controller');
+                //$scope.val1 = 'This is temp Val' ;  
+                //$scope.fName = '';
+                //$scope.lName = '';
+                //$scope.email = '';  
+                //$scope.mbl = '' ;
+                //	alert('inside2');
+                //$scope.getAllRec = function(){ 
+		//	alert('hello');
+                    // $http({method: 'GET', url: '/db/readRecords'}).
+                     //   success(function(data, status) { 
+                     //         $scope.dataset = data; 
+                    //    }).
+                    //    error(function(data, status) {
+                   //       $scope.dataset = data || "Request failed "; 
+                  //    }); 
+		//};
+		//alert('checking');
+	
+	  // }]);	
+		
+		
+		$scope.getAllRec = function(){ 
 			alert('hello');
                      $http({method: 'GET', url: '/db/readRecords'}).
                         success(function(data, status) { 
@@ -46,9 +61,6 @@
                           $scope.dataset = data || "Request failed "; 
                       }); 
 		};
-		alert('checking');
-	
-	   }]);		
 		
 	</script>	
 
@@ -89,7 +101,7 @@
     </div>  
 	
     <p>Trying to fetch contact details from salesforce.com database</p>
-    <button type="button" id="contactdetails" ng-click="getAllRec()"   class="btn btn-success">Fetch Contact details</button>
+    <button type="button"  ng-click="getAllRec()"   class="btn btn-success">Fetch Contact details</button>
     <table>
     	<thead>
     		<tr>	<th>First Name</th>
