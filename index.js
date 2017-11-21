@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var pg = require('pg');
- var errorHandler = require('express-error-handler');
+ //var errorHandler = require('express-error-handler');
 var app = express();
 var dbOperations = require(__dirname +"/dbOperations.js");
 //app.set('view engine', 'ejs');
@@ -13,8 +13,8 @@ app.use('/static',express.static(__dirname +'/styles.css'));
 app.use('/static',express.static(__dirname +'/samplehtml.html'));
 
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+//app.use(bodyParser.json());
+//app.use(bodyParser.urlencoded({extended:false}));
 
 
 
