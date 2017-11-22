@@ -7,10 +7,10 @@ var dbOperations = require(__dirname +"/dbOperations.js");
 //app.set('view engine', 'ejs');
 
 
-app.use('/static',express.static(__dirname +'/bootstrap-3.3.7//dist/js/bootstrap.min.css'));
-app.use('/static',express.static(__dirname +'/bootstrap-3.3.7//dist/js/bootstrap.min.js'));
-app.use('/static',express.static(__dirname +'/styles.css'));
-app.use('/static',express.static(__dirname +'/samplehtml.html'));
+app.use(express.static(__dirname +'/bootstrap-3.3.7//dist/js/bootstrap.min.css'));
+app.use(express.static(__dirname +'/bootstrap-3.3.7//dist/js/bootstrap.min.js'));
+app.use(express.static(__dirname +'/styles.css'));
+app.use(express.static(__dirname +'/samplehtml.html'));
 
 
 //app.use(bodyParser.json());
